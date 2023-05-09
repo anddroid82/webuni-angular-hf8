@@ -19,7 +19,7 @@ export class AuthService {
     if (user) {
       this._currentUser.next(JSON.parse(user));
     }
-    
+
     this.sessionInfo().subscribe(isLoggedIn => {
       if (!isLoggedIn) {
         this.handleLogout();
@@ -55,7 +55,6 @@ export class AuthService {
       })
     );
   }
-
 
   isLoggedIn() {
     return this._currentUser.getValue() !== undefined;
