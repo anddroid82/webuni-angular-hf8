@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-registration',
@@ -6,5 +8,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./registration.component.scss']
 })
 export class RegistrationComponent {
+
+  username:string = '';
+  email:string = '';
+  password:string = '';
+
+  constructor(private authService:AuthService,private router:Router) {}
+
+  registration(){
+
+  }
 
 }

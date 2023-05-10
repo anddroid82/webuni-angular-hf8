@@ -22,4 +22,9 @@ export class LoginComponent {
     });
   }
 
+  goToReg(){
+    this.router.navigateByUrl('/registration');
+  }
+
+
 }
