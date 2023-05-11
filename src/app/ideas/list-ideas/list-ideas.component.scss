@@ -2,8 +2,13 @@
     padding: 20px 0;
     display: flex;
     justify-content: center;
+    align-items: center;
+
+    .ideas {
+        width: 80%;
+    }
 
     .idea {
-        width: 80%;
+        margin-bottom: 10px;
     }
 }

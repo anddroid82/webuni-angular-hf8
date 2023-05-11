@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class MenuComponent implements OnInit {
 
   isLoggedIn = false;
 
-  constructor(private authService: AuthService) {
+  constructor(private authService: AuthService, private router:Router) {
 
   }
   
@@ -26,6 +27,14 @@ export class MenuComponent implements OnInit {
 
   logout() {
     this.authService.logout().subscribe();
+  }
+
+  goToIdeaForm(){
+    this.router.navigateByUrl('/ideas/new');
+  }
+
+  goToListIdeas(){
+    this.router.navigateByUrl('/ideas');
   }
 
 }

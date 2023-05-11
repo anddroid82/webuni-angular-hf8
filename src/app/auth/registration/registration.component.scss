@@ -1,0 +1,10 @@
+mat-card {
+    width: 50%;
+    margin: 24px auto;
+    padding: 32px;
+
+    .reg-form {
+        display: flex;
+        flex-direction: column;
+    }
+}

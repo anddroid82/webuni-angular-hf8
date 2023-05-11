@@ -1,8 +1,10 @@
 <mat-toolbar>
     <div>
-    <span>Ötletdoboz</span>
-</div>
-<div>
-    <button *ngIf="isLoggedIn" mat-button (click)="logout()"><mat-icon>logout</mat-icon></button>
-</div>
+        <span>Ötletdoboz</span>
+        <button *ngIf="isLoggedIn" mat-button (click)="goToListIdeas()"><mat-icon>list_alt</mat-icon></button>
+        <button *ngIf="isLoggedIn" mat-button (click)="goToIdeaForm()"><mat-icon>add_notes</mat-icon></button>
+    </div>
+    <div>
+        <button *ngIf="isLoggedIn" mat-button (click)="logout()"><mat-icon>logout</mat-icon></button>
+    </div>
 </mat-toolbar>

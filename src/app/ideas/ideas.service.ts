@@ -28,4 +28,8 @@ export class IdeasService {
     return this.http.delete<{id:string}>(`${this._baseURL}/${idea.id}`);
   }
 
+  addIdea(idea:Idea){
+    return this.http.post<Idea>(`${this._baseURL}`,idea);
+  }
+
 }

@@ -5,23 +5,29 @@
     <mat-card-content>
         <div class="reg-form">
             <mat-form-field appearance="outline">
-                <mat-label>username</mat-label>
+                <mat-label>felhasználónév</mat-label>
                 <input matInput placeholder="username" required [(ngModel)]="username" >
                 <!--<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>email</mat-label>
+                <mat-label>email cím</mat-label>
                 <input matInput placeholder="email" required [(ngModel)]="email" >
                 <!--<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
             </mat-form-field>
             <mat-form-field appearance="outline">
-                <mat-label>password</mat-label>
+                <mat-label>jelszó</mat-label>
                 <input matInput placeholder="password" required [(ngModel)]="password" type="password">
+                <!--<mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>-->
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>jelszó újra</mat-label>
+                <input matInput placeholder="password again" required [(ngModel)]="passwordagain" type="password">
                 <!--<mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>-->
             </mat-form-field>
         </div>
     </mat-card-content>
     <mat-card-actions>
         <button mat-button (click)="registration()" color="primary">Regisztráció</button>
+        <button mat-button (click)="backToLogin()" color="primary">Vissza</button>
     </mat-card-actions>
 </mat-card>

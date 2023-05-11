@@ -12,11 +12,16 @@ export class RegistrationComponent {
   username:string = '';
   email:string = '';
   password:string = '';
+  passwordagain:string = '';
 
   constructor(private authService:AuthService,private router:Router) {}
 
   registration(){
 
+  }
+
+  backToLogin(){
+    this.router.navigateByUrl('/login');
   }
 
 }

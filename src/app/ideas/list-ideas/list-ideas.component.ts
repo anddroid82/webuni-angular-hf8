@@ -29,12 +29,19 @@ export class ListIdeasComponent implements OnInit {
 
   upVote(idea:Idea) {
     this.voteInProgress = true;
-    this.ideasService.upvoteIdea(idea).subscribe(_ => this.listIdeas());
+    this.ideasService.upvoteIdea(idea).subscribe(r => {
+      console.log(r);
+      this.listIdeas()
+    });
   }
 
   downVote(idea:Idea) {
     this.voteInProgress = true;
     this.ideasService.downvoteIdea(idea).subscribe(_ => this.listIdeas());
+  }
+
+  deleteIdea(idea:Idea) {
+    this.ideasService.deleteIdea(idea).subscribe(_ => this.listIdeas());
   }
 
 }
