@@ -17,7 +17,7 @@ export class LoginComponent {
   }
 
   login(){
-    this.authService.login(this.email,this.password).subscribe( o => {
+    this.authService.login(this.email,this.password).subscribe( _ => {
       this.router.navigateByUrl('/ideas');
     });
   }

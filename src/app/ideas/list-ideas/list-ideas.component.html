@@ -1,5 +1,5 @@
 <div class="ideas-container">
-    <!--<mat-progress-spinner *ngIf="ideas.length===0" mode="indeterminate"></mat-progress-spinner>-->
+    <mat-progress-spinner *ngIf="ideas.length===0" mode="indeterminate"></mat-progress-spinner>
     <mat-card class="idea" *ngFor="let idea of ideas">
         <mat-card-header>
             <mat-card-title matBadge="{{idea.votes}}">{{idea.name}}</mat-card-title>
