@@ -17,6 +17,6 @@
         </div>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button (click)="addIdea()" color="primary" [disabled]="inProgress">Létrehozás</button>
+        <button mat-button (click)="addIdea();this.ideasSer;" color="primary" [disabled]="inProgress">Létrehozás</button>
     </mat-card-actions>
 </mat-card>

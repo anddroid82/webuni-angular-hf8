@@ -10,7 +10,6 @@ import { IdeasService } from '../ideas.service';
 export class ListIdeasComponent implements OnInit {
 
   ideas:Idea[] = [];
-  voteInProgress:boolean = false;
 
   constructor(private ideasService:IdeasService) {
 
@@ -20,15 +19,12 @@ export class ListIdeasComponent implements OnInit {
   }
 
   listIdeas() {
-    this.voteInProgress = true;
     this.ideasService.listIdeas().subscribe(ideas => {
       this.ideas = ideas;
-      this.voteInProgress=false;
     });
   }
 
   upVote(idea:Idea) {
-    this.voteInProgress = true;
     this.ideasService.upvoteIdea(idea).subscribe(r => {
       console.log(r);
       this.listIdeas()
@@ -36,7 +32,6 @@ export class ListIdeasComponent implements OnInit {
   }
 
   downVote(idea:Idea) {
-    this.voteInProgress = true;
     this.ideasService.downvoteIdea(idea).subscribe(_ => this.listIdeas());
   }
 

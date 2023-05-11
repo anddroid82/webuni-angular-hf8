@@ -16,6 +16,10 @@ export class NewIdeaComponent {
 
   constructor(private ideaService: IdeasService, private router: Router) { }
 
+  get ideasSer(){
+    return this.ideaService;
+  }
+
   addIdea(){
     this.inProgress=true;
     const idea:Idea = new Idea('',this.name,this.description,0);
