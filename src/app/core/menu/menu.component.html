@@ -5,6 +5,7 @@
         <button *ngIf="isLoggedIn" mat-button (click)="goToIdeaForm()"><mat-icon>add_notes</mat-icon></button>
     </div>
     <div>
+        <span class="username">{{username}}</span>
         <button *ngIf="isLoggedIn" mat-button (click)="logout()"><mat-icon>logout</mat-icon></button>
     </div>
 </mat-toolbar>

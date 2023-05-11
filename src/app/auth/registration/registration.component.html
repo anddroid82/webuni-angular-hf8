@@ -6,23 +6,19 @@
         <div class="reg-form">
             <mat-form-field appearance="outline">
                 <mat-label>felhasználónév</mat-label>
-                <input matInput placeholder="username" required [(ngModel)]="username" >
-                <!--<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+                <input matInput placeholder="felhasználónév" required [(ngModel)]="username" >
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>email cím</mat-label>
-                <input matInput placeholder="email" required [(ngModel)]="email" >
-                <!--<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+                <input matInput placeholder="email cím" required [(ngModel)]="email" >
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>jelszó</mat-label>
-                <input matInput placeholder="password" required [(ngModel)]="password" type="password">
-                <!--<mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>-->
+                <input matInput placeholder="jelszó" required [(ngModel)]="password" type="password">
             </mat-form-field>
             <mat-form-field appearance="outline">
                 <mat-label>jelszó újra</mat-label>
-                <input matInput placeholder="password again" required [(ngModel)]="passwordagain" type="password">
-                <!--<mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>-->
+                <input matInput placeholder="jelszó újra" required [(ngModel)]="passwordagain" type="password">
             </mat-form-field>
         </div>
     </mat-card-content>

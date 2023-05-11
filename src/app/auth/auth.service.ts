@@ -71,4 +71,9 @@ export class AuthService {
   private clearLocalStorage() {
     localStorage.removeItem(this.loggedInuserKey);
   }
+
+  registerUser(user:User){
+    return this.http.post<User>(`${this._baseURL}/registration`,user);
+  }
+  
 }
