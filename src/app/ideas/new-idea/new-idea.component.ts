@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IdeasService } from '../ideas.service';
 import { Router } from '@angular/router';
 import { Idea } from '../models/idea.model';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-new-idea',
@@ -10,9 +11,8 @@ import { Idea } from '../models/idea.model';
 })
 export class NewIdeaComponent {
 
-  name:string=''; 
-  description:string='';
   inProgress:boolean=false;
+  form:FormGroup = new FormGroup()
 
   constructor(private ideaService: IdeasService, private router: Router) { }
 
