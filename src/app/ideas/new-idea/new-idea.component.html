@@ -3,23 +3,24 @@
         <mat-card-title>Új ötlet</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-        <form [formGroup]="form">
+        <form [formGroup]="form" (ngSubmit)="addIdea()">
             <div class="newidea-form">
                 <mat-form-field appearance="outline">
                     <mat-label>név</mat-label>
-                    <input matInput placeholder="név" required [(ngModel)]="name">
-                    <!--<mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>-->
+                    <input matInput placeholder="név" formControlName="name">
+                    <mat-error *ngIf="form.controls['name'].errors?.['required']">A név megadása kötelező!</mat-error>
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>leírás</mat-label>
-                    <input matInput placeholder="leírás" required [(ngModel)]="description">
-                    <!--<mat-error *ngIf="password.invalid">{{getErrorMessage()}}</mat-error>-->
+                    <input matInput placeholder="leírás" formControlName="description">
+                    <mat-error *ngIf="form.controls['description'].errors?.['required']">A leírás megadása kötelező!</mat-error>
                 </mat-form-field>
             </div>
         </form>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button (click)="addIdea();this.ideasSer;" color="primary"
-            [disabled]="inProgress">Létrehozás</button>
+        <button mat-button (click)="addIdea()" color="primary"
+            [disabled]="inProgress || !form.valid">Létrehozás</button>
+        <mat-spinner diameter="30" *ngIf="inProgress"></mat-spinner>
     </mat-card-actions>
 </mat-card>
