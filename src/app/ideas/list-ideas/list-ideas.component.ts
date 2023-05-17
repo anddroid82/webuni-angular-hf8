@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Idea } from '../models/idea.model';
 import { IdeasService } from '../ideas.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-ideas',
@@ -11,7 +12,7 @@ export class ListIdeasComponent implements OnInit {
 
   ideas:Idea[] = [];
 
-  constructor(private ideasService:IdeasService) {
+  constructor(private ideasService:IdeasService, private router:Router) {
 
   }
   ngOnInit(): void {
@@ -39,4 +40,7 @@ export class ListIdeasComponent implements OnInit {
     this.ideasService.deleteIdea(idea).subscribe(_ => this.listIdeas());
   }
 
+  editIdea(idea:Idea) {
+    this.router.navigateByUrl(`/ideas/new?id=${idea.id}`);
+  }
 }

@@ -1,6 +1,10 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>Új ötlet</mat-card-title>
+        <mat-card-title>
+            <ng-container *ngIf="!isEditing; then newIdeaTitle; else modIdeaTitle"></ng-container>
+            <ng-template #newIdeaTitle>Új ötlet</ng-template>
+            <ng-template #modIdeaTitle>Ötlet szerkesztése</ng-template>
+        </mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <form [formGroup]="form" (ngSubmit)="addIdea()">
@@ -20,7 +24,7 @@
     </mat-card-content>
     <mat-card-actions>
         <button mat-button (click)="addIdea()" color="primary"
-            [disabled]="inProgress || !form.valid">Létrehozás</button>
+            [disabled]="inProgress || !form.valid">{{!isEditing?'Létrehozás':'Módosítás'}}</button>
         <mat-spinner diameter="30" *ngIf="inProgress"></mat-spinner>
     </mat-card-actions>
 </mat-card>
