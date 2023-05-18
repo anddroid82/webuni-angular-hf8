@@ -9,7 +9,7 @@
             <mat-divider></mat-divider>
         </mat-card-content>
         <mat-card-actions>
-            <app-vote [idea]="idea"></app-vote>
+            <app-vote [idea]="idea" (ideaChange)="ideaChanged($event)"></app-vote>
             <button mat-button (click)="editIdea(idea)"><mat-icon>edit</mat-icon></button>
             <button mat-button (click)="deleteIdea(idea)"><mat-icon>delete</mat-icon></button>
         </mat-card-actions>
