@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Idea } from '../models/idea.model';
 import { IdeasService } from '../ideas.service';
 
@@ -9,18 +9,30 @@ import { IdeasService } from '../ideas.service';
 })
 export class VoteComponent {
 
-  @Input() idea:Idea|undefined = undefined;
+  @Input() idea: Idea | undefined = undefined;
+  @Output() ideaChange = new EventEmitter<Idea>();
 
-  constructor(private ideasService:IdeasService) {
+  constructor(private ideasService: IdeasService) {
 
   }
 
   upVote() {
-
+    this.ideasService.upvoteIdea(this.idea!).subscribe(r => {
+      this.ideasService.getIdea(this.idea!.id).subscribe(i => {
+        this.idea = i;
+        this.ideaChange.emit(this.idea);
+      })
+    });
   }
 
-  downVote(){
-
+  downVote() {
+    this.ideasService.downvoteIdea(this.idea!).subscribe(r => {
+      this.ideasService.getIdea(this.idea!.id).subscribe(i => {
+        this.idea = i;
+        this.ideaChange.emit(this.idea);
+      })
+    });
   }
 
+  
 }
