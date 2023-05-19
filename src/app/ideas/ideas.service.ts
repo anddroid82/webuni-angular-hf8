@@ -41,6 +41,14 @@ export class IdeasService {
     return this.http.put<Idea>(`${this._baseURL}/${idea.id}`, idea);
   }
 
+  searchIdea(s:string) {
+    return this.http.get<Idea[]>(`${this._baseURL}`,{
+      params:{
+        search:s
+      }
+    });
+  }
+
 }
 
 export const ideaResolver: ResolveFn<Idea | undefined> =

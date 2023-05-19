@@ -9,4 +9,22 @@
         margin-bottom: 10px;
         width: 60%;
     }
+    .ideas-search {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        mat-form-field {
+            width: 100%;
+            font-size: 0.9em;
+            text-align: center;
+            input {
+                text-align: center;
+            }
+        }
+    }
+    .founded-ideas-number {
+        width: 60%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
 }

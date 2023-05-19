@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class ListIdeasComponent implements OnInit {
 
   ideas:Idea[] = [];
+  search:string = '';
+  listInProgress:boolean = true;
 
   constructor(private ideasService:IdeasService, private router:Router) {
 
@@ -22,6 +24,7 @@ export class ListIdeasComponent implements OnInit {
   listIdeas() {
     this.ideasService.listIdeas().subscribe(ideas => {
       this.ideas = ideas;
+      this.listInProgress = false;
     });
   }
 
@@ -44,4 +47,12 @@ export class ListIdeasComponent implements OnInit {
     this.router.navigateByUrl(`/ideas/new?id=${idea.id}`);
   }
   
+  beginSearch(){
+    this.listInProgress = true;
+    console.log(this.search);
+    this.ideasService.searchIdea(this.search).subscribe( i =>{
+      this.ideas = i;
+      this.listInProgress = false;
+    })
+  }
 }

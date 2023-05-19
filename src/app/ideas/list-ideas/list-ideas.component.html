@@ -1,5 +1,14 @@
 <div class="ideas-container">
-    <mat-progress-spinner *ngIf="ideas.length===0" mode="indeterminate" diameter="40"></mat-progress-spinner>
+    <div class="ideas-search">
+        <mat-form-field appearance="outline">
+            <!--<mat-label>keresés</mat-label>-->
+            <input matInput placeholder="keresés" [(ngModel)]="search" (keydown.enter)="beginSearch()">
+        </mat-form-field>
+    </div>
+    <mat-progress-spinner *ngIf="listInProgress" mode="indeterminate" diameter="40"></mat-progress-spinner>
+    <div class="founded-ideas-number">
+        Találatok száma: {{ideas.length}}
+    </div>
     <mat-card class="idea" *ngFor="let idea of ideas;index as i">
         <mat-card-header>
             <mat-card-title matBadge="{{idea.votes}}"><a [routerLink]="idea.id">{{idea.name}}</a></mat-card-title>
