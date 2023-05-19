@@ -43,14 +43,5 @@ export class ListIdeasComponent implements OnInit {
   editIdea(idea: Idea) {
     this.router.navigateByUrl(`/ideas/new?id=${idea.id}`);
   }
-
-  ideaChanged(idea:Idea){
-    this.ideas.forEach( i => {
-      if (i.id === idea.id) {
-        i.name=idea.name;
-        i.description = idea.description;
-        i.votes=idea.votes;
-      }
-    })
-  }
+  
 }
