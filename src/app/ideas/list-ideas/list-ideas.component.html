@@ -2,7 +2,7 @@
     <mat-progress-spinner *ngIf="ideas.length===0" mode="indeterminate" diameter="40"></mat-progress-spinner>
     <mat-card class="idea" *ngFor="let idea of ideas;index as i">
         <mat-card-header>
-            <mat-card-title matBadge="{{idea.votes}}"><a [routerLink]="idea.id">{{idea.name}} {{i}}</a></mat-card-title>
+            <mat-card-title matBadge="{{idea.votes}}"><a [routerLink]="idea.id">{{idea.name}}</a></mat-card-title>
         </mat-card-header>
         <mat-card-content>
             <p>{{ idea!.description }}</p>
